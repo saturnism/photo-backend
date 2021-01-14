@@ -1,0 +1,24 @@
+GET http://localhost:8080/photos/test
+
+###
+
+POST http://localhost:8080/photo
+Content-Type: application/json
+
+{
+  "id": "test",
+  "label": "anton"
+}
+
+###
+
+POST http://localhost:8080/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="photo.jpg"
+
+< ./cat.jpg
+--WebAppBoundary--
+
+###
